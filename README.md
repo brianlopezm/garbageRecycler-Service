@@ -6,10 +6,10 @@
 /api/usuarios/{userName} | Obtiene un usuario especifico.
 
 ### POST
-URL: /api/usuarios
-DESCRIPCIÓN: Agrega un nuevo usuario.
-HEADER:"Content-Type : application/json"
-BODY:
+URL: /api/usuarios <br />
+DESCRIPCIÓN: Agrega un nuevo usuario. <br />
+HEADER:"Content-Type : application/json" <br />
+BODY: <br />
 ```json
 {
 	"firstName":"ExampleFirstName",
@@ -19,10 +19,10 @@ BODY:
 	"mail":"Example@mail.com"
 }
 ```
-URL: /api/reciclados
-DESCRIPCIÓN: Agrega un nuevo reciclado a un user indicado en el body.
-HEADER:"Content-Type : application/json"
-BODY:
+URL: /api/reciclados <br />
+DESCRIPCIÓN: Agrega un nuevo reciclado a un user indicado en el body. <br />
+HEADER:"Content-Type : application/json" <br />
+BODY: <br />
 ```json
 {	
 	"userName":"user",
