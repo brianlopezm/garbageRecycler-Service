@@ -1,5 +1,6 @@
 ### GET
  URL | Descripcion
+ -----|------------
 /api/{userName}/reciclados | Obtiene la lista de reciclados de un usuario.
 /api/{userName}/totalreciclado | Obtiene el totalreciclado de un usuario.
 /api/usuarios/{userName} | Obtiene un usuario especifico.
