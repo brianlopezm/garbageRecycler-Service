@@ -32,7 +32,7 @@ public class GarbageRecyclerController {
 	UserRecyclingService urs;
 	
 	//Agrega Persona
-	@PostMapping(path = "/api/personas")
+	@PostMapping(path = "/api/usuarios")
 	public ResponseEntity<Persona> registerPersona(@RequestBody Persona p){
 		if (ps.findByuserName(p.getUserName())==null) {
 			Persona newP = ps.register(p);
@@ -43,7 +43,7 @@ public class GarbageRecyclerController {
 					.toUri();
 			return ResponseEntity.created(location).body(newP);
 		}
-		throw new PersonNotFoundException("Ya existe el usuario: " + p.getUserName() );
+		throw new PersonNotFoundException("Ya existe el usuario " + p.getUserName() );
 	}
 	
 	//Agrega un reciclado
@@ -59,40 +59,40 @@ public class GarbageRecyclerController {
 					.toUri();
 			return ResponseEntity.created(location).body(newUR);
 		}
-		throw new PersonNotFoundException("No existe :" + userName);
+		throw new PersonNotFoundException("No existe " + userName);
 	}
 		
 	
 	//Obtiene todos los reciclados de un Usuario
-	@GetMapping(path = "/api/reciclados/{userName}")
+	@GetMapping(path = "/api/{userName}/reciclados")
 	public ResponseEntity<List<UserRecycling>> getAllUserRecyclingByUser(@PathVariable(value = "userName") String userName){
 		if (ps.findByuserName(userName)!=null) {
 			List <UserRecycling> listByUser=urs.getAllUserRecycling(userName);
 			return ResponseEntity.ok(listByUser);
 		}
-		throw new PersonNotFoundException("No existe: " + userName);
+		throw new PersonNotFoundException("No existe " + userName);
 	}
 	
 	//Obtiene el total reciclado
-	@GetMapping(path = "/api/totalreciclado/{userName}")
+	@GetMapping(path = "/api/{userName}/totalreciclado")
 	public TotalRecycling getTotalRecyclingByUser(@PathVariable(value = "userName") String userName){
 		if (ps.findByuserName(userName)!=null) {
 			TotalRecycling tr= new TotalRecycling(userName,urs.getAllUserRecycling(userName));
 			return tr;
 		}
-		throw new PersonNotFoundException("No existe: " + userName);
+		throw new PersonNotFoundException("No existe " + userName);
 		
 	}
 
 	
 	//Obtiene un Usuario
-	@GetMapping(path = "/api/personas/{userName}")
+	@GetMapping(path = "/api/usuarios/{userName}")
 	public ResponseEntity<Persona> getPersona(@PathVariable(value = "userName") String userName){
 		Persona p = ps.findByuserName(userName);
 		if (p!=null) {
 		return ResponseEntity.ok(p);
 		}
-		throw new PersonNotFoundException("No existe: " + userName);
+		throw new PersonNotFoundException("No existe " + userName);
 	}
 	
 }
