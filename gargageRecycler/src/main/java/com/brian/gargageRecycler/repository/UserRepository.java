@@ -10,6 +10,6 @@ import com.brian.gargageRecycler.model.UserRecycling;
 @RepositoryRestResource(exported = false)
 public interface UserRepository extends PagingAndSortingRepository<UserRecycling, Long> {
 	
-	List <UserRecycling> findBy();
+	
 	List <UserRecycling> findByUserName(String userName);
 }
